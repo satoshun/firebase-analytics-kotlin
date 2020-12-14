@@ -1,13 +1,14 @@
 import SwiftUI
 import analytics
+import FirebaseAnalytics
 
-func greet() -> String {
-    return Greeting().greeting()
+func analyse() {
+    Analytics.logEvent("test", parameters: nil)
 }
 
 struct ContentView: View {
     var body: some View {
-        Text(greet())
+        Text("Hello")
     }
 }
 

@@ -1,0 +1,4 @@
+language = Objective-C
+modules = FirebaseAnalytics
+compilerOpts = -framework FirebaseAnalytics
+linkerOpts = -framework FirebaseAnalytics -framework FIRAnalyticsConnector

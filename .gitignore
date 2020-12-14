@@ -13,3 +13,8 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+Pods*
+sampleIosApp/Pod*
+sampleIosApp/sampleIosApp.xcworkspace*
+sampleIosApp/sampleIosApp.xcodeproj/xcuserdata*

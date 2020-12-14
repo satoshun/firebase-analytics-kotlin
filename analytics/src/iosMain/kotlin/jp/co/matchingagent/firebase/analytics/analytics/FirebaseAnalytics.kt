@@ -1,5 +1,9 @@
 package jp.co.matchingagent.firebase.analytics.analytics
 
+import cocoapods.FirebaseAnalytics.kFIRParameterAchievementID
+import cocoapods.FirebaseAnalytics.kFIRParameterAdFormat
+import cocoapods.FirebaseAnalytics.kFIRParameterAdPlatform
+
 actual class FirebaseAnalytics {
   actual fun logEvent(
     name: String,
@@ -10,9 +14,9 @@ actual class FirebaseAnalytics {
 }
 
 actual object FirebaseAnalyticsParam {
-  actual val ACHIEVEMENT_ID: String get() = TODO()
-  actual val AD_FORMAT: String get() = TODO()
-  actual val AD_PLATFORM: String get() = TODO()
+  actual val ACHIEVEMENT_ID: String get() = kFIRParameterAchievementID!!
+  actual val AD_FORMAT: String get() = kFIRParameterAdFormat!!
+  actual val AD_PLATFORM: String get() = kFIRParameterAdPlatform!!
 }
 
 actual class FirebaseParametersBuilder {
