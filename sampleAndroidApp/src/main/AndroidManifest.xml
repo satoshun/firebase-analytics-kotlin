@@ -3,6 +3,7 @@
   package="jp.co.matchingagent.firebase.analytics.sampleAndroidApp">
 
   <application
+    android:name=".App"
     android:allowBackup="false"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
