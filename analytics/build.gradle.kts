@@ -1,10 +1,11 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
+  id("com.android.library")
+  id("maven-publish")
+
   kotlin("multiplatform")
   kotlin("native.cocoapods")
-
-  id("com.android.library")
 }
 
 group = "jp.co.matchingagent.firebase.analytics"
@@ -22,7 +23,9 @@ fun KotlinNativeTarget.setUpFirebaseAnalytics() {
 }
 
 kotlin {
-  android()
+  android {
+    publishLibraryVariants("debug", "release")
+  }
 
   val buildForDevice = project.findProperty("kotlin.native.cocoapods.target") == "ios_arm"
   if (buildForDevice) {
@@ -39,11 +42,17 @@ kotlin {
     configure(listOf(iosX64)) { setUpFirebaseAnalytics() }
   }
 
+//  ios()
+
   cocoapods {
-    summary = "Kotlin sample project with CocoaPods dependencies"
+    summary = "Firebase analytics project with CocoaPods dependencies"
     homepage = "https://github.com/"
 
-    ios.deploymentTarget = "13.5"
+//    pod("FirebaseAnalytics")
+    podfile = project.file("../sampleIosApp/Podfile")
+//    useLibraries()
+
+//    ios.deploymentTarget = "13.5"
   }
 
   sourceSets {
@@ -54,9 +63,11 @@ kotlin {
         implementation(kotlin("test-annotations-common"))
       }
     }
+
     val androidMain by getting {
       dependencies {
         implementation("com.google.firebase:firebase-analytics-ktx:18.0.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2")
       }
     }
     val androidTest by getting {
@@ -65,6 +76,8 @@ kotlin {
         implementation("junit:junit:4.13.1")
       }
     }
+
+//    val iosMain by getting
   }
 }
 

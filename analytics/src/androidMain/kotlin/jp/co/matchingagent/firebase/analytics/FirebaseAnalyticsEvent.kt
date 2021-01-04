@@ -1,4 +1,4 @@
-package jp.co.matchingagent.firebase.analytics.analytics
+package jp.co.matchingagent.firebase.analytics
 
 import com.google.firebase.analytics.FirebaseAnalytics
 

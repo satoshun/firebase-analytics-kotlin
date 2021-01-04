@@ -1,20 +1,18 @@
 package jp.co.matchingagent.firebase.analytics.sampleAndroidApp
 
 import android.os.Bundle
-import android.widget.TextView
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import jp.co.matchingagent.firebase.analytics.analytics.FirebaseAnalytics
+import jp.co.matchingagent.firebase.Firebase
+import jp.co.matchingagent.firebase.analytics.analytics
 
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    val analytics = FirebaseAnalytics()
-
-    val tv: TextView = findViewById(R.id.button)
-    tv.setOnClickListener {
-      analytics.logEvent("clicked")
+    findViewById<View>(R.id.button).setOnClickListener {
+      Firebase.analytics.logEvent("android")
     }
   }
 }

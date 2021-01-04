@@ -1,4 +1,4 @@
-package jp.co.matchingagent.firebase.analytics.analytics
+package jp.co.matchingagent.firebase.analytics
 
 expect object FirebaseAnalyticsParam {
   val ACHIEVEMENT_ID: String
