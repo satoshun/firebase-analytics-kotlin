@@ -1,5 +1,7 @@
 package jp.co.matchingagent.firebase.analytics
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.os.Bundle
 import com.google.firebase.analytics.FirebaseAnalytics.ConsentStatus
 import com.google.firebase.analytics.FirebaseAnalytics.ConsentType
@@ -12,6 +14,10 @@ import com.google.firebase.ktx.Firebase as faFirebase
 
 actual val Firebase.analytics: FirebaseAnalytics
   get() = FirebaseAnalytics(faFirebase.analytics)
+
+@SuppressLint("MissingPermission")
+fun Firebase.analytics(context: Context): FirebaseAnalytics =
+  FirebaseAnalytics(faFirebaseAnalytics.getInstance(context))
 
 actual class FirebaseAnalytics(
   private val analytics: faFirebaseAnalytics
