@@ -20,7 +20,7 @@ fun KotlinNativeTarget.setUpFirebaseAnalytics() {
 
 kotlin {
   android {
-    publishLibraryVariants("debug", "release")
+    publishLibraryVariants("release")
   }
 
   val buildForDevice = project.findProperty("kotlin.native.cocoapods.target") == "ios_arm"
