@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
   implementation(project(":analytics"))
+//  implementation("jp.co.matchingagent.firebase:analytics:0.0.1")
 
   implementation("com.google.android.material:material:1.2.1")
   implementation("androidx.appcompat:appcompat:1.2.0")

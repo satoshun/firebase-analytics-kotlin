@@ -2,14 +2,10 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
 
 plugins {
   id("com.android.library")
-  id("maven-publish")
 
   kotlin("multiplatform")
   kotlin("native.cocoapods")
 }
-
-group = "jp.co.matchingagent.firebase.analytics"
-version = "0.0.1"
 
 fun KotlinNativeTarget.setUpFirebaseAnalytics() {
   compilations.getByName("main") {
