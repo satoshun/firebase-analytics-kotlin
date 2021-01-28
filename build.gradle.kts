@@ -8,8 +8,9 @@ buildscript {
   dependencies {
     classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21")
 //    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30-M1")
-    classpath("com.android.tools.build:gradle:4.1.1")
+    classpath("com.android.tools.build:gradle:4.1.2")
     classpath("com.google.gms:google-services:4.3.4")
+    classpath("com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5")
   }
 }
 
@@ -18,7 +19,7 @@ allprojects {
     google()
     jcenter()
     mavenCentral()
-    mavenLocal()
+//    mavenLocal()
   }
 }
 
@@ -27,10 +28,12 @@ subprojects {
   version = "0.0.1"
 
   repositories {
-    mavenLocal()
+//    mavenLocal()
     mavenCentral()
     google()
     jcenter()
+
+    maven(url = "https://dl.bintray.com/matchingagent/maven/")
   }
 
   apply(plugin = "maven-publish")

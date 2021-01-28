@@ -6,12 +6,12 @@ import Firebase
 func analyse() {
     // initialize
     FirebaseApp.configure()
-    Firebase().analytics.setAnalyticsCollectionEnabled(enabled: true)
     
     // use my library
+    Firebase().analytics.setAnalyticsCollectionEnabled(enabled: true)
     Firebase().analytics.logEvent(name: "ios_my_library")
 
-    // official FirebaseAnalytics
+    // use official FirebaseAnalytics
     Analytics.logEvent("ios_official", parameters: nil)
 }
 
