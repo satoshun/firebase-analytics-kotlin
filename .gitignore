@@ -17,7 +17,6 @@ local.properties
 google-services.json
 
 Pods*
-sampleIosApp/Pod*
 sampleIosApp/sampleIosApp.xcworkspace*
 sampleIosApp/sampleIosApp.xcodeproj/xcuserdata*
 GoogleService-Info.plist
