@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'analytics'
-    spec.version                  = '0.0.2'
+    spec.version                  = '0.0.3'
     spec.homepage                 = 'https://github.com/'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''

@@ -25,7 +25,7 @@ allprojects {
 
 subprojects {
   group = "jp.co.matchingagent.firebase"
-  version = "0.0.2"
+  version = "0.0.3"
 
   repositories {
 //    mavenLocal()
