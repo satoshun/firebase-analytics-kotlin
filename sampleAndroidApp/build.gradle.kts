@@ -15,7 +15,7 @@ android {
   compileSdkVersion(30)
   defaultConfig {
     applicationId = "jp.co.matchingagent.firebase.analytics.sampleAndroidApp"
-    minSdkVersion(24)
+    minSdkVersion(21)
     targetSdkVersion(30)
     versionCode = 1
     versionName = "1.0"
