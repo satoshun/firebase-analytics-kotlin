@@ -6,8 +6,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.21")
-//    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30-M1")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
     classpath("com.android.tools.build:gradle:4.1.2")
     classpath("com.google.gms:google-services:4.3.5")
     classpath("com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5")
@@ -24,11 +23,10 @@ allprojects {
 }
 
 subprojects {
-  group = "jp.co.matchingagent.firebase"
+  group = "com.github.satoshun.firebase"
   version = "0.0.3"
 
   repositories {
-//    mavenLocal()
     mavenCentral()
     google()
     jcenter()

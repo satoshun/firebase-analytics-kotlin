@@ -1,13 +1,13 @@
-package jp.co.matchingagent.firebase.analytics
+package com.github.satoshun.firebase.analytics
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import com.github.satoshun.firebase.Firebase
 import com.google.firebase.analytics.FirebaseAnalytics.ConsentStatus
 import com.google.firebase.analytics.FirebaseAnalytics.ConsentType
 import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.analytics.ktx.logEvent
-import jp.co.matchingagent.firebase.Firebase
 import kotlinx.coroutines.tasks.await
 import com.google.firebase.analytics.FirebaseAnalytics as faFirebaseAnalytics
 import com.google.firebase.ktx.Firebase as faFirebase

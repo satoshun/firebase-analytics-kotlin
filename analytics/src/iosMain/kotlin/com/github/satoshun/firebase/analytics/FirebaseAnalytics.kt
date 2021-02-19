@@ -1,4 +1,4 @@
-package jp.co.matchingagent.firebase.analytics
+package com.github.satoshun.firebase.analytics
 
 import cocoapods.FirebaseAnalytics.FIRAnalyticsMeta
 import cocoapods.FirebaseAnalytics.kFIREventAdImpression
@@ -109,7 +109,7 @@ import cocoapods.FirebaseAnalytics.kFIRParameterTransactionID
 import cocoapods.FirebaseAnalytics.kFIRParameterTravelClass
 import cocoapods.FirebaseAnalytics.kFIRParameterValue
 import cocoapods.FirebaseAnalytics.kFIRParameterVirtualCurrencyName
-import jp.co.matchingagent.firebase.Firebase
+import com.github.satoshun.firebase.Firebase
 import cocoapods.FirebaseAnalytics.FIRAnalytics as fIRAnalytics
 
 actual val Firebase.analytics: FirebaseAnalytics

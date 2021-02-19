@@ -1,6 +1,6 @@
-package jp.co.matchingagent.firebase.analytics
+package com.github.satoshun.firebase.analytics
 
-import jp.co.matchingagent.firebase.Firebase
+import com.github.satoshun.firebase.Firebase
 
 expect val Firebase.analytics: FirebaseAnalytics
 

@@ -1,10 +1,10 @@
-package jp.co.matchingagent.firebase.analytics.sampleAndroidApp
+package com.github.satoshun.firebase.analytics.sampleAndroidApp
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import jp.co.matchingagent.firebase.Firebase
-import jp.co.matchingagent.firebase.analytics.analytics
+import com.github.satoshun.firebase.Firebase
+import com.github.satoshun.firebase.analytics.analytics
 
 class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {

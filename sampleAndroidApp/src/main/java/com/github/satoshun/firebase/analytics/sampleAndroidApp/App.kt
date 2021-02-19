@@ -1,4 +1,4 @@
-package jp.co.matchingagent.firebase.analytics.sampleAndroidApp
+package com.github.satoshun.firebase.analytics.sampleAndroidApp
 
 import android.app.Application
 

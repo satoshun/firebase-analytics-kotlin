@@ -5,16 +5,15 @@ plugins {
 
 dependencies {
   implementation(project(":analytics"))
-//  implementation("jp.co.matchingagent.firebase:analytics:0.0.1")
 
-  implementation("com.google.android.material:material:1.2.1")
+  implementation("com.google.android.material:material:1.3.0")
   implementation("androidx.appcompat:appcompat:1.2.0")
 }
 
 android {
   compileSdkVersion(30)
   defaultConfig {
-    applicationId = "jp.co.matchingagent.firebase.analytics.sampleAndroidApp"
+    applicationId = "com.github.satoshun.firebase.analytics.sampleAndroidApp"
     minSdkVersion(21)
     targetSdkVersion(30)
     versionCode = 1
