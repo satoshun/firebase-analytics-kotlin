@@ -70,7 +70,7 @@ kotlin {
 
     val androidMain by getting {
       dependencies {
-        implementation("com.google.firebase:firebase-analytics-ktx:18.0.1")
+        implementation("com.google.firebase:firebase-analytics-ktx:18.0.2")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2")
       }
     }

@@ -9,7 +9,6 @@ buildscript {
     classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30")
     classpath("com.android.tools.build:gradle:4.1.2")
     classpath("com.google.gms:google-services:4.3.5")
-    classpath("com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5")
   }
 }
 
@@ -18,36 +17,35 @@ allprojects {
     google()
     jcenter()
     mavenCentral()
-//    mavenLocal()
   }
 }
 
+fun getRepositoryUsername() =
+  if (hasProperty("SONATYPE_NEXUS_USERNAME")) properties["SONATYPE_NEXUS_USERNAME"] as String else ""
+
+fun getRepositoryPassword() =
+  if (hasProperty("SONATYPE_NEXUS_PASSWORD")) properties["SONATYPE_NEXUS_PASSWORD"] as String else ""
+
 subprojects {
   group = "com.github.satoshun.firebase"
-  version = "0.0.3"
+  version = "0.0.4"
 
   repositories {
     mavenCentral()
     google()
     jcenter()
-
-    maven(url = "https://dl.bintray.com/matchingagent/maven/")
   }
 
   apply(plugin = "maven-publish")
   apply(plugin = "signing")
 
-//  tasks.withType<Sign>().configureEach {
-//    onlyIf { !project.gradle.startParameter.taskNames.contains("publishToMavenLocal") }
-//  }
-
   configure<PublishingExtension> {
     repositories {
       maven {
-        url = uri("https://api.bintray.com/maven/matchingagent/maven/firebase-analytics-kotlin/;publish=0;override=1")
+        url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
         credentials {
-          username = project.findProperty("bintrayUsername") as String? ?: System.getenv("bintrayUsername")
-          password = project.findProperty("bintrayPassword") as String? ?: System.getenv("bintrayPassword")
+          username = getRepositoryUsername()
+          password = getRepositoryPassword()
         }
       }
     }
@@ -58,19 +56,19 @@ subprojects {
       pom {
         name.set("firebase-kotlin-analytics")
         description.set("Firebase Analytics for Kotlin")
-        url.set("https://github.com/MatchingAgent/firebase-analytics-kotlin")
-        inceptionYear.set("2020")
+        url.set("https://github.com/satoshun/firebase-analytics-kotlin")
+        inceptionYear.set("2021")
 
         scm {
-          url.set("https://github.com/MatchingAgent/firebase-analytics-kotlin")
-          connection.set("scm:git:https://github.com/MatchingAgent/firebase-analytics-kotlin.git")
-          developerConnection.set("scm:git:https://github.com/MatchingAgent/firebase-analytics-kotlin.git")
+          url.set("https://github.com/satoshun/firebase-analytics-kotlin")
+          connection.set("scm:git:https://github.com/satoshun/firebase-analytics-kotlin.git")
+          developerConnection.set("scm:git:https://github.com/satoshun/firebase-analytics-kotlin.git")
           tag.set("HEAD")
         }
 
         issueManagement {
           system.set("GitHub Issues")
-          url.set("https://github.com/MatchingAgent/firebase-analytics-kotlin/issues")
+          url.set("https://github.com/satoshun/firebase-analytics-kotlin/issues")
         }
 
         developers {
