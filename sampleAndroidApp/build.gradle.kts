@@ -5,6 +5,7 @@ plugins {
 
 dependencies {
   implementation(project(":analytics"))
+//  implementation("com.github.satoshun.firebase:analytics:0.0.5")
 
   implementation("com.google.android.material:material:1.3.0")
   implementation("androidx.appcompat:appcompat:1.2.0")

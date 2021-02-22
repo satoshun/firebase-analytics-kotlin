@@ -22,5 +22,5 @@ allprojects {
   }
 
   group = "com.github.satoshun.firebase"
-  version = "0.0.4"
+  version = "0.0.5"
 }

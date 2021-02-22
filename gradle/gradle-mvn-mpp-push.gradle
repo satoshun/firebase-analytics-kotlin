@@ -8,7 +8,7 @@ dokka {
     []
   }
   packageOptions {
-    prefix = "com.github.satoshun.analytics.internal"
+    prefix = "com.github.satoshun.firebase.analytics.internal"
     suppress = true
   }
   sourceRoot {
