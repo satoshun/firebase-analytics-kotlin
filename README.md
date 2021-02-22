@@ -7,7 +7,7 @@ Firebase Analytics Kotlin is a Kotlin Multiplatform library for Firebase Analyti
 Send a log from kotlin code.
 
 ```kotlin
-import jp.co.matchingagent.firebase.analytics.analytics
+import com.github.satoshun.firebase.analytics.analytics
 
 Firebase.analytics.logEvent("android")
 ```
@@ -18,6 +18,6 @@ Download with a Gradle.
 
 ```groovy
 dependencies {
-  implementation "jp.co.matchingagent.firebase:analytics:0.0.1"
+  implementation "com.github.satoshun.firebase:analytics:0.0.5"
 }
 ```
