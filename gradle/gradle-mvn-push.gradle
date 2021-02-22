@@ -1,0 +1,28 @@
+// copy from sqldelight
+
+apply plugin: "com.vanniktech.maven.publish"
+apply plugin: "org.jetbrains.dokka"
+
+dokka {
+  outputDirectory = "$rootDir/docs/1.x"
+  outputFormat = 'gfm'
+}
+
+mavenPublish {
+  releaseSigningEnabled = !getGpgKey().isEmpty()
+
+  targets {
+    installLocally {
+      releaseRepositoryUrl = file("${rootProject.buildDir}/localMaven").toURI().toString()
+      snapshotRepositoryUrl = file("${rootProject.buildDir}/localMaven").toURI().toString()
+    }
+  }
+}
+
+if (project.plugins.hasPlugin("org.jetbrains.kotlin.multiplatform")) {
+  apply from: rootProject.file("gradle/gradle-mvn-mpp-push.gradle")
+}
+
+def getGpgKey() {
+  return hasProperty('signingKey') ? signingKey : ""
+}

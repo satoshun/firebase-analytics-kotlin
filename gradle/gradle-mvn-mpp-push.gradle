@@ -1,0 +1,33 @@
+// copy from sqldelight
+
+dokka {
+  impliedPlatforms = ["Common"] // This will force platform tags for all non-common sources e.g. "JVM"
+  kotlinTasks {
+    // dokka fails to retrieve sources from MPP-tasks so they must be set empty to avoid exception
+    // use sourceRoot instead (see below)
+    []
+  }
+  packageOptions {
+    prefix = "com.github.satoshun.analytics.internal"
+    suppress = true
+  }
+  sourceRoot {
+    // assuming there is only a single source dir...
+    path = kotlin.sourceSets.commonMain.kotlin.srcDirs[0]
+    platforms = ["Common"]
+  }
+  if (kotlin.sourceSets.getNames().contains("androidMain")) {
+    sourceRoot {
+      // assuming there is only a single source dir...
+      path = kotlin.sourceSets.androidMain.kotlin.srcDirs[0]
+      platforms = ["android"]
+    }
+  }
+  if (kotlin.sourceSets.getNames().contains("iosMain")) {
+    sourceRoot {
+      // assuming there is only a single source dir...
+      path = kotlin.sourceSets.iosMain.kotlin.srcDirs[0]
+      platforms = ["ios"]
+    }
+  }
+}
