@@ -1,11 +1,11 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'analytics'
     spec.version                  = '0.0.5'
-    spec.homepage                 = 'https://github.com/'
+    spec.homepage                 = 'https://github.com/satoshun/firebase-analytics-kotlin'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''
     spec.license                  = ''
-    spec.summary                  = 'Firebase analytics project with CocoaPods dependencies'
+    spec.summary                  = 'Firebase analytics for Kotlin'
 
     spec.static_framework         = true
     spec.vendored_frameworks      = "build/cocoapods/framework/analytics.framework"

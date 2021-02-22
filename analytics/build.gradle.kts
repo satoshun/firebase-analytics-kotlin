@@ -49,12 +49,10 @@ kotlin {
 //  ios()
 
   cocoapods {
-    summary = "Firebase analytics project with CocoaPods dependencies"
-    homepage = "https://github.com/"
+    summary = "Firebase analytics for Kotlin"
+    homepage = "https://github.com/satoshun/firebase-analytics-kotlin"
 
     pod("FirebaseAnalytics", "~> 7.4.0")
-    podfile = project.file("../sampleIosApp/Podfile")
-//    useLibraries()
 
     ios.deploymentTarget = "13.5"
   }
