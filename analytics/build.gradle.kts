@@ -7,20 +7,20 @@ plugins {
   kotlin("native.cocoapods")
 }
 
-fun KotlinNativeTarget.setUpFirebaseAnalytics() {
-  compilations.getByName("main") {
-    val firebaseAnalytics by cinterops.creating {
-      packageName("cocoapods.FirebaseAnalytics")
-      defFile(file("$projectDir/src/iosMain/c_interop/FirebaseAnalytics.def"))
-      includeDirs("$projectDir/../sampleIosApp/Pods/FirebaseAnalytics")
-      compilerOpts("-F$projectDir/../sampleIosApp/Pods/FirebaseAnalytics/Frameworks")
-    }
-  }
-}
+//fun KotlinNativeTarget.setUpFirebaseAnalytics() {
+//  compilations.getByName("main") {
+//    val firebaseAnalytics by cinterops.creating {
+//      packageName("cocoapods.FirebaseAnalytics")
+//      defFile(file("$projectDir/src/iosMain/c_interop/FirebaseAnalytics.def"))
+//      includeDirs("$projectDir/../sampleIosApp/Pods/FirebaseAnalytics")
+//      compilerOpts("-F$projectDir/../sampleIosApp/Pods/FirebaseAnalytics/Frameworks")
+//    }
+//  }
+//}
 
 kotlin {
   android {
-    publishLibraryVariants("release", "debug")
+    publishAllLibraryVariants()
   }
 
 //  val buildForDevice = project.findProperty("kotlin.native.cocoapods.target") == "ios_arm"
@@ -38,13 +38,13 @@ kotlin {
 //    configure(listOf(iosX64)) { setUpFirebaseAnalytics() }
 //  }
 
-  val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
-    if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
-      ::iosArm64
-    else
-      ::iosX64
+//  val iosTarget: (String, KotlinNativeTarget.() -> Unit) -> KotlinNativeTarget =
+//    if (System.getenv("SDK_NAME")?.startsWith("iphoneos") == true)
+//      ::iosArm64
+//    else
+//      ::iosX64
 
-  iosTarget("ios") {}
+//  iosTarget("ios") {}
 
 //  ios()
 
@@ -52,12 +52,56 @@ kotlin {
     summary = "Firebase analytics for Kotlin"
     homepage = "https://github.com/satoshun/firebase-analytics-kotlin"
 
-    pod("FirebaseAnalytics", "~> 7.4.0")
+//    pod("FirebaseAnalytics", "~> 7.4.0")
 
-    ios.deploymentTarget = "13.5"
+    ios.deploymentTarget = "12.0"
   }
 
+  fun nativeTargetConfig(): KotlinNativeTarget.() -> Unit = {
+    val nativeFrameworkPaths = listOf(
+      projectDir.resolve("src/nativeInterop/cinterop/Carthage/Build/iOS")
+    )
+
+//  binaries {
+//    getTest("DEBUG").apply {
+//      linkerOpts(nativeFrameworkPaths.map { "-F$it" })
+//      linkerOpts("-ObjC")
+//    }
+//  }
+
+    compilations.getByName("main") {
+      cinterops.create("FirebaseAnalytics") {
+//      packageName("cocoapods.FirebaseAnalytics")
+//      defFile(file("$projectDir/src/iosMain/c_interop/FirebaseAnalytics.def"))
+//      includeDirs("$projectDir/../sampleIosApp/Pods/FirebaseAnalytics")
+
+        compilerOpts(nativeFrameworkPaths.map { "-F$it" })
+        extraOpts("-verbose")
+      }
+    }
+  }
+
+  ios(configure = nativeTargetConfig())
+
+////  val iosX64 = iosX64("ios")
+//  val iosArm64 = iosArm64("ios")
+//////  val iosArm32 = iosArm32("ios32")
+//////  configure(listOf(iosArm64, iosArm32, iosX64)) {
+////  configure(listOf(iosX64, iosArm64)) {
+//  configure(listOf(iosArm64)) {
+//    setUpFirebaseAnalytics()
+//    compilations["main"].source(sourceSets["iosMain"])
+//  }
+
   sourceSets {
+    all {
+      languageSettings.apply {
+        apiVersion = "1.4"
+        languageVersion = "1.4"
+        progressiveMode = true
+      }
+    }
+
     val commonMain by getting
     val commonTest by getting {
       dependencies {
@@ -75,11 +119,11 @@ kotlin {
     val androidTest by getting {
       dependencies {
         implementation(kotlin("test-junit"))
-        implementation("junit:junit:4.13.1")
+        implementation("junit:junit:4.13.2")
       }
     }
 
-//    val iosMain by getting
+    val iosMain by getting
   }
 }
 

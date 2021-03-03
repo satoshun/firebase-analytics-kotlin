@@ -1,0 +1,5 @@
+language = Objective-C
+package = cocoapods.FirebaseAnalytics
+modules = FirebaseAnalytics
+compilerOpts = -framework FirebaseAnalytics
+linkerOpts = -framework FirebaseCore -framework FirebaseCoreDiagnostics -framework FirebaseAnalytics -framework FIRAnalyticsConnector -framework GoogleAppMeasurement -framework FirebaseInstallations -framework GoogleDataTransport  -framework GoogleUtilities -framework PromisesObjC -framework nanopb -framework StoreKit -lsqlite3

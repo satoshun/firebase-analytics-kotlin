@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'analytics'
-    spec.version                  = '0.0.5'
+    spec.version                  = '0.0.6-SNAPSHOT'
     spec.homepage                 = 'https://github.com/satoshun/firebase-analytics-kotlin'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''
@@ -12,9 +12,9 @@ Pod::Spec.new do |spec|
     spec.libraries                = "c++"
     spec.module_name              = "#{spec.name}_umbrella"
 
-    spec.ios.deployment_target = '13.5'
+    spec.ios.deployment_target = '12.0'
 
-    spec.dependency 'FirebaseAnalytics', '~> 7.4.0'
+                
 
     spec.pod_target_xcconfig = {
         'KOTLIN_TARGET[sdk=iphonesimulator*]' => 'ios_x64',
