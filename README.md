@@ -1,6 +1,6 @@
 # Firebase Analytics Kotlin
 
-Firebase Analytics Kotlin is a Kotlin Multiplatform library for Firebase Analytics. It supports only android and ios. 
+Firebase Analytics Kotlin is a Kotlin Multiplatform library for Firebase Analytics. It supports only android and ios.
 
 ## Get started
 
@@ -18,6 +18,6 @@ Download with a Gradle.
 
 ```groovy
 dependencies {
-  implementation "com.github.satoshun.firebase:analytics:0.0.5"
+  implementation "com.github.satoshun.firebase:analytics:0.0.6"
 }
 ```
