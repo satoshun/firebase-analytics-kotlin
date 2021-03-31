@@ -21,3 +21,12 @@ dependencies {
   implementation "com.github.satoshun.firebase:analytics:0.0.6"
 }
 ```
+
+## Development
+
+Dowload frameworks by Carthage.
+
+```shell
+cd analytics/src/nativeInterop/cinterop/
+carthage update --use-xcframeworks
+```
