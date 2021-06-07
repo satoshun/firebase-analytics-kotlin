@@ -96,8 +96,8 @@ kotlin {
   sourceSets {
     all {
       languageSettings.apply {
-        apiVersion = "1.4"
-        languageVersion = "1.4"
+        apiVersion = "1.5"
+        languageVersion = "1.5"
         progressiveMode = true
       }
     }
@@ -112,8 +112,8 @@ kotlin {
 
     val androidMain by getting {
       dependencies {
-        implementation("com.google.firebase:firebase-analytics-ktx:18.0.2")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.2")
+        implementation("com.google.firebase:firebase-analytics-ktx:19.0.0")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.5.0")
       }
     }
     val androidTest by getting {
