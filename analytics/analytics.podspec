@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
     spec.name                     = 'analytics'
-    spec.version                  = '1.5.0-SNAPSHOT'
+    spec.version                  = '1.5.0'
     spec.homepage                 = 'https://github.com/satoshun/firebase-analytics-kotlin'
     spec.source                   = { :git => "Not Published", :tag => "Cocoapods/#{spec.name}/#{spec.version}" }
     spec.authors                  = ''
