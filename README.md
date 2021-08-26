@@ -24,7 +24,7 @@ dependencies {
 
 ## Development
 
-Dowload frameworks by Carthage.
+Download frameworks by Carthage.
 
 ```shell
 cd analytics/src/nativeInterop/cinterop/
