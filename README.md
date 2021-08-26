@@ -18,7 +18,7 @@ Download with a Gradle.
 
 ```groovy
 dependencies {
-  implementation "com.github.satoshun.firebase:analytics:0.0.6"
+  implementation "com.github.satoshun.firebase:analytics:1.5.0"
 }
 ```
 
