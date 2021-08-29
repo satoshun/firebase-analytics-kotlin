@@ -5,8 +5,8 @@ target 'sampleIosApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   platform :ios, '13.5'
-  
-  pod 'analytics', :path => '../analytics'
+
+  pod 'sampleShared', :path => '../sampleShared'
   pod 'Firebase', "~> 7.4.0"
   pod 'FirebaseAnalytics', "~> 7.4.0"
 

@@ -9,5 +9,7 @@ pluginManagement {
 
 rootProject.name = "FirebaseAnalyticsKotlin"
 
-include(":sampleAndroidApp")
 include(":analytics")
+
+include(":sampleAndroidApp")
+include(":sampleShared")
