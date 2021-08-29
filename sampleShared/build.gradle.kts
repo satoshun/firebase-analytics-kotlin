@@ -1,21 +1,28 @@
 plugins {
   kotlin("multiplatform")
+  kotlin("native.cocoapods")
   id("com.android.library")
 }
 
 kotlin {
   android()
-  ios {
-    binaries {
-      framework {
-        baseName = "shared"
-      }
+  ios()
+
+  cocoapods {
+    summary = "Firebase analytics for Kotlin"
+    homepage = "https://github.com/satoshun/firebase-analytics-kotlin"
+
+    ios.deploymentTarget = "12.0"
+
+    framework {
+      baseName = "shared"
     }
   }
+
   sourceSets {
     val commonMain by getting {
       dependencies {
-        api(project(":analytics"))
+        implementation(project(":analytics"))
         //  implementation("com.github.satoshun.firebase:analytics:0.0.5")
       }
     }
