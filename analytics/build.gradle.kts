@@ -52,8 +52,6 @@ kotlin {
     summary = "Firebase analytics for Kotlin"
     homepage = "https://github.com/satoshun/firebase-analytics-kotlin"
 
-//    pod("FirebaseAnalytics", "~> 7.4.0")
-
     ios.deploymentTarget = "12.0"
   }
 
@@ -82,6 +80,7 @@ kotlin {
   }
 
   ios(configure = nativeTargetConfig())
+  iosSimulatorArm64(configure = nativeTargetConfig())
 
 ////  val iosX64 = iosX64("ios")
 //  val iosArm64 = iosArm64("ios")
