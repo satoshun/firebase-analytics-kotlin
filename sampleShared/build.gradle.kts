@@ -7,6 +7,7 @@ plugins {
 kotlin {
   android()
   ios()
+  iosSimulatorArm64()
 
   cocoapods {
     summary = "Firebase analytics for Kotlin"

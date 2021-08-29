@@ -72,6 +72,7 @@ kotlin {
   }
 
   ios(configure = nativeTargetConfig())
+  iosSimulatorArm64(configure = nativeTargetConfig())
 
 ////  val iosX64 = iosX64("ios")
 //  val iosArm64 = iosArm64("ios")
