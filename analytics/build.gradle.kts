@@ -4,7 +4,6 @@ plugins {
   id("com.android.library")
 
   kotlin("multiplatform")
-  kotlin("native.cocoapods")
 }
 
 //fun KotlinNativeTarget.setUpFirebaseAnalytics() {
@@ -47,13 +46,6 @@ kotlin {
 //  iosTarget("ios") {}
 
 //  ios()
-
-  cocoapods {
-    summary = "Firebase analytics for Kotlin"
-    homepage = "https://github.com/satoshun/firebase-analytics-kotlin"
-
-    ios.deploymentTarget = "12.0"
-  }
 
   fun nativeTargetConfig(): KotlinNativeTarget.() -> Unit = {
     val nativeFrameworkPaths = listOf(

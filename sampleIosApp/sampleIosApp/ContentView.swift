@@ -1,5 +1,5 @@
 import SwiftUI
-import analytics
+import shared
 import FirebaseAnalytics
 import Firebase
 
@@ -8,8 +8,8 @@ func analyse() {
     FirebaseApp.configure()
     
     // use my library
-    Firebase().analytics.setAnalyticsCollectionEnabled(enabled: true)
-    Firebase().analytics.logEvent(name: "ios_my_library")
+    SharedFirebaseAnalytics.shared.setAnalyticsCollectionEnable()
+    SharedFirebaseAnalytics.shared.logEvent()
 
     // use official FirebaseAnalytics
     Analytics.logEvent("ios_official", parameters: nil)
