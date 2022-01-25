@@ -3,16 +3,6 @@ plugins {
   kotlin("android")
 }
 
-dependencies {
-//  implementation(project(":analytics"))
-//  implementation("com.github.satoshun.firebase:analytics:0.0.5")
-
-  implementation(project(":sampleShared"))
-
-  implementation("com.google.android.material:material:1.4.0")
-  implementation("androidx.appcompat:appcompat:1.3.1")
-}
-
 android {
   compileSdk = 30
   defaultConfig {
@@ -27,6 +17,13 @@ android {
       isMinifyEnabled = false
     }
   }
+}
+
+dependencies {
+  implementation(project(":sampleShared"))
+
+  implementation("com.google.android.material:material:1.4.0")
+  implementation("androidx.appcompat:appcompat:1.3.1")
 }
 
 apply {
