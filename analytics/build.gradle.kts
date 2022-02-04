@@ -152,8 +152,8 @@ kotlin {
     }
 
     val iosMain by getting
-//    val iosSimulatorArm64Main by getting
-//    iosSimulatorArm64Main.dependsOn(iosMain)
+    val iosSimulatorArm64Main by getting
+    iosSimulatorArm64Main.dependsOn(iosMain)
   }
 }
 
