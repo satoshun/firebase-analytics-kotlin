@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+import org.jetbrains.kotlin.konan.target.KonanTarget
 
 plugins {
   id("com.android.library")
@@ -16,6 +17,13 @@ plugins {
 //    }
 //  }
 //}
+
+val KonanTarget.archVariant: String
+  get() = if (this is KonanTarget.IOS_X64 || this is KonanTarget.IOS_SIMULATOR_ARM64) {
+    "ios-arm64_i386_x86_64-simulator"
+  } else {
+    "ios-arm64_armv7"
+  }
 
 kotlin {
   android {
@@ -44,32 +52,61 @@ kotlin {
 //      ::iosX64
 
 //  iosTarget("ios") {}
-
 //  ios()
 
-  fun nativeTargetConfig(): KotlinNativeTarget.() -> Unit = {
-    val nativeFrameworkPaths = listOf(
-      projectDir.resolve("src/nativeInterop/cinterop/Carthage/Build/iOS")
-    )
-
-//  binaries {
-//    getTest("DEBUG").apply {
-//      linkerOpts(nativeFrameworkPaths.map { "-F$it" })
-//      linkerOpts("-ObjC")
+//  fun nativeTargetConfig(): KotlinNativeTarget.() -> Unit = {
+//    val nativeFrameworkPaths = listOf(
+//      projectDir.resolve("src/nativeInterop/cinterop/Carthage/Build/iOS")
+//    )
+//
+////  binaries {
+////    getTest("DEBUG").apply {
+////      linkerOpts(nativeFrameworkPaths.map { "-F$it" })
+////      linkerOpts("-ObjC")
+////    }
+////  }
+//
+//    compilations.getByName("main") {
+//      cinterops.create("FirebaseAnalytics") {
+////      packageName("cocoapods.FirebaseAnalytics")
+////      defFile(file("$projectDir/src/iosMain/c_interop/FirebaseAnalytics.def"))
+////      includeDirs("$projectDir/../sampleIosApp/Pods/FirebaseAnalytics")
+//
+//        compilerOpts(nativeFrameworkPaths.map { "-F$it" })
+//        extraOpts("-verbose")
+//      }
 //    }
 //  }
 
+  fun nativeTargetConfig(): KotlinNativeTarget.() -> Unit = {
+    val nativeFrameworkPaths = listOf(
+      "FirebaseAnalytics",
+      "FirebaseCore",
+      "FirebaseCoreDiagnostics",
+      "FirebaseInstallations",
+      "GoogleAppMeasurement",
+      "GoogleDataTransport",
+      "GoogleUtilities",
+      "nanopb",
+      "PromisesObjC"
+    ).map {
+      projectDir.resolve("src/nativeInterop/cinterop/Carthage/Build/$it.xcframework/${konanTarget.archVariant}")
+    }
+    binaries {
+      getTest("DEBUG").apply {
+        linkerOpts(nativeFrameworkPaths.map { "-F$it" })
+        linkerOpts("-ObjC")
+      }
+    }
+
     compilations.getByName("main") {
       cinterops.create("FirebaseAnalytics") {
-//      packageName("cocoapods.FirebaseAnalytics")
-//      defFile(file("$projectDir/src/iosMain/c_interop/FirebaseAnalytics.def"))
-//      includeDirs("$projectDir/../sampleIosApp/Pods/FirebaseAnalytics")
-
         compilerOpts(nativeFrameworkPaths.map { "-F$it" })
-        extraOpts("-verbose")
+        extraOpts = listOf("-compiler-option", "-DNS_FORMAT_ARGUMENT(A)=", "-verbose")
       }
     }
   }
+
 
   ios(configure = nativeTargetConfig())
   iosSimulatorArm64(configure = nativeTargetConfig())
@@ -115,6 +152,8 @@ kotlin {
     }
 
     val iosMain by getting
+//    val iosSimulatorArm64Main by getting
+//    iosSimulatorArm64Main.dependsOn(iosMain)
   }
 }
 
