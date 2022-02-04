@@ -165,10 +165,6 @@ actual class FirebaseAnalytics(
     analytics.setUserPropertyString(name, value)
   }
 
-  fun setScreenName(screenName: String?, screenClass: String?) {
-    analytics.setScreenName(screenName, screenClass)
-  }
-
   fun setDefaultEventParameters(parameters: Map<String, *>?) {
     analytics.setDefaultEventParameters(parameters?.toMap())
   }

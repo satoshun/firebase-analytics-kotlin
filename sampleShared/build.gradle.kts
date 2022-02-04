@@ -24,7 +24,7 @@ kotlin {
     val commonMain by getting {
       dependencies {
         implementation(project(":analytics"))
-        //  implementation("com.github.satoshun.firebase:analytics:0.0.5")
+//        implementation("com.github.satoshun.firebase:analytics:0.0.5")
       }
     }
     val commonTest by getting
@@ -34,6 +34,10 @@ kotlin {
 
     val iosMain by getting
     val iosTest by getting
+    val iosSimulatorArm64Main by sourceSets.getting
+    val iosSimulatorArm64Test by sourceSets.getting
+    iosSimulatorArm64Main.dependsOn(iosMain)
+    iosSimulatorArm64Test.dependsOn(iosTest)
   }
 }
 
