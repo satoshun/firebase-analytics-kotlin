@@ -22,11 +22,17 @@ publishing {
 
 signing {
   def signingKey = getGpgKey()
+  def signingPassword = getGpgPassword()
+
   if (!signingKey.isEmpty()) {
-    useInMemoryPgpKeys(signingKey, "")
+    useInMemoryPgpKeys(signingKey, signingPassword)
   }
 }
 
 def getGpgKey() {
-  return hasProperty('signingKey') ? signingKey : ""
+  return hasProperty('GPG_SIGNING_KEY') ? GPG_SIGNING_KEY : ""
+}
+
+def getGpgPassword() {
+  return hasProperty('signingPassword') ? signingPassword : ""
 }

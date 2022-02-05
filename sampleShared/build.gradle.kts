@@ -24,7 +24,7 @@ kotlin {
     val commonMain by getting {
       dependencies {
         implementation(project(":analytics"))
-//        implementation("com.github.satoshun.firebase:analytics:0.0.5")
+//        implementation("com.github.satoshun.firebase:analytics:1.6.0")
       }
     }
     val commonTest by getting
